@@ -91,23 +91,23 @@ function Home() {
                     <button type="submit" className="border-blue-800 bg-blue-700 py-3 px-5 rounded-md mr-5">Filter</button>
                 </div>
             </form>
-
             <div className="mt-10">
                 {loading ? (
                     <p className='text-center'>Loading...</p>
                 ) : (
                     books.length > 0 ? (
                         <ul className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 items-center">
-                        {books.map((book) => (
-                            <li key={book.id} className="border p-4 mb-2 rounded-md shadow-lg cursor-pointer hover:shadow-2xl transition duration-300 transform hover:-translate-y-1" onClick={() => handleBookClick(book.id)}>
-                                <img src={book.thumbnailUrl} alt={book.title} className="w-80 h-80 mb-3 object-cover rounded-md" />
-                                <p className="text-sm text-gray-500">Id: {book.id}</p>
-                                <h3 className="text-lg font-semibold">{book.title}</h3>
-                                <p className="text-sm text-gray-600">Authors: {book.authors.join(', ')}</p>
-                                <p className="text-sm text-gray-600">Pages: {book.pageCount}</p>
-                            </li>
-                        ))}
-                    </ul>
+                            {books.map((book) => (
+                                <li key={book.id} onClick={() => handleBookClick(book.id)} className="border p-6 mb-4 rounded-lg shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-2 bg-white cursor-pointer" >
+                                    <img src={book.thumbnailUrl}  alt={book.title}  className="w-full h-72 object-cover rounded-md mb-4 shadow-inner transition-opacity duration-300 hover:opacity-90" />
+                                    <div className="text-center">
+                                        <h3 className="text-xl font-semibold mb-2 text-gray-800">{book.title}</h3>
+                                        <p className="text-gray-600">Authors: {book.authors.join}</p>
+                                        <p className="text-gray-500 mt-1">Pages: {book.pageCount}</p>
+                                    </div>
+                                </li>
+                            ))}
+                        </ul>
                     ) : (
                         <p className='text-center'>Kitoblar yoq</p>
                     )
