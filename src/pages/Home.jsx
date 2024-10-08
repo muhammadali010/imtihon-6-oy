@@ -91,23 +91,23 @@ function Home() {
                     <button type="submit" className="border-blue-800 bg-blue-700 py-3 px-5 rounded-md mr-5">Filter</button>
                 </div>
             </form>
-            <div className="mt-10">
+            <div className="mt-10 container mx-auto flex">
                 {loading ? (
                     <p className='text-center'>Loading...</p>
                 ) : (
                     books.length > 0 ? (
-                        <ul className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 items-center">
+                        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 items-center">
                             {books.map((book) => (
-                                <li key={book.id} onClick={() => handleBookClick(book.id)} className="border p-6 mb-4 rounded-lg shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-2 bg-white cursor-pointer" >
-                                    <img src={book.thumbnailUrl}  alt={book.title}  className="w-full h-72 object-cover rounded-md mb-4 shadow-inner transition-opacity duration-300 hover:opacity-90" />
+                                <div key={book.id} onClick={() => handleBookClick(book.id)} className="border p-6 mb-4 rounded-lg shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-2 bg-white cursor-pointer" >
+                                    <img src={book.thumbnailUrl}  alt={book.title}  className="w-full h-72 object-fill rounded-md mb-4 shadow-inner transition-opacity duration-300 hover:opacity-90" />
                                     <div className="text-center">
                                         <h3 className="text-xl font-semibold mb-2 text-gray-800">{book.title}</h3>
                                         <p className="text-gray-600">Authors: {book.authors.join}</p>
                                         <p className="text-gray-500 mt-1">Pages: {book.pageCount}</p>
                                     </div>
-                                </li>
+                                </div>
                             ))}
-                        </ul>
+                        </div>
                     ) : (
                         <p className='text-center'>Kitoblar yoq</p>
                     )

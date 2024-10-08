@@ -8,7 +8,7 @@ function Navbar() {
     }
   return (
     <div className='flex mx-auto justify-between bg-indigo-800 w-full h-14 items-center text-white'>
-   <h1 className='text-2xl'>Books</h1>
+   <h1 className='text-2xl font-bold'>Books</h1>
    <button onClick={handleLogout} className='border p-2 rounded-md hover:bg-sky-400'>Log out</button>
     </div>
   )

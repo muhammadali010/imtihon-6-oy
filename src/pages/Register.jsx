@@ -11,11 +11,33 @@ function Register() {
     const rePasswordRef = useRef();
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
-
-  
+ 
+    function Validate(){
+        if (usernameRef.current.value.length < 3) {
+            alert('username 3 ta harfdan kam bolmasligi kerak')
+            usernameRef.current.focus()
+            usernameRef.current.style.outlineColor ='red'
+            return false
+        }
+        return true
+        }
+        function Validate(){
+            if (ageRef.current.value < 5) {
+                alert('5 yoshdan kichiklar kirishi mumkin emas')
+                ageRef.current.focus()
+                ageRef.current.style.outlineColor ='red'
+                return false
+            }
+            return true
+            }
 
     const handleRegister = (event) => {
         event.preventDefault();
+        const isvalid = Validate();
+        if (!isvalid) {
+          return;
+        }
+      
 
         const registerUser = {
             firstName: usernameRef.current.value,
