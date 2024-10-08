@@ -8,19 +8,15 @@ function Login() {
     const passwordRef = useRef();
     const navigate = useNavigate();
 
-
-
     function handleLogin(event) {
         event.preventDefault();
 
-
-
-        const userCredentials = {
+        const user = {
             email: emailRef.current.value,
             password: passwordRef.current.value,
         };
         setIsLoading(true);
-        axios.post(`https://fn27.vimlc.uz/login`, userCredentials, {
+        axios.post(`https://fn27.vimlc.uz/login`, user, {
             headers: {
                 "Content-Type": "application/json"
             }
@@ -44,8 +40,8 @@ function Login() {
         <div className='bg-cyan-950  border rounded-md mx-auto border-gray-300 shadow-md w-1/3 mt-24 p-6'>
             <h2 className='text-center  text-blue-600 text-4xl mb-5 font-extrabold py-5'>Login</h2>
             <form className='flex flex-col items-center py-5'>
-                <input  ref={emailRef} className='p-3 mb-3 border rounded-md w-full bg-cyan-950 border-indigo-500'  type="email"  placeholder='Enter  email...' />
-                <input  ref={passwordRef} className='p-3 mb-3 border rounded-md w-full bg-cyan-950 border-indigo-500'  type="password"  placeholder='Enter  password...' />
+                <input  ref={emailRef} className='p-3 mb-3 border-b-2 rounded-md w-full bg-cyan-950 border-indigo-500'  type="email"  placeholder='Enter  email...' />
+                <input  ref={passwordRef} className='p-3 mb-3 border-b-2 rounded-md w-full bg-cyan-950 border-indigo-500'  type="password"  placeholder='Enter  password...' />
                 <button   disabled={isLoading} onClick={handleLogin}  className='bg-blue-600 text-white w-full p-2 rounded-md hover:bg-blue-700'  >  {isLoading ? "login.." : "Login"} </button>
                 <Link className='mx-auto mt-2 text-white hover:text-blue-500' to="/register">Register</Link>
             </form>
