@@ -33,7 +33,7 @@ function Home() {
         fetchBooks();
     }, []);
 
-    const handleSearchChange = (event) => {
+    function handleSearchChange(event) {
         const query = event.target.value;
         setSearchQuery(query);
         if (query) {
@@ -81,7 +81,7 @@ function Home() {
     return (
         <div>
             <Navbar />
-            <form className="flex justify-between items-center mt-7" onSubmit={handleFilter}>
+            <form className="container mx-auto flex justify-between items-center mt-7" onSubmit={handleFilter}>
                 <div>
                     <input className="border ml-5 p-2 rounded-md" type="text" placeholder="Qidiruv..." value={searchQuery} onChange={handleSearchChange} />
                 </div>
@@ -102,7 +102,7 @@ function Home() {
                                     <img src={book.thumbnailUrl}  alt={book.title}  className="w-full h-72 object-fill rounded-md mb-4 shadow-inner transition-opacity duration-300 hover:opacity-90" />
                                     <div className="text-center">
                                         <h3 className="text-xl font-semibold mb-2 text-gray-800">{book.title}</h3>
-                                        <p className="text-gray-600">Authors: {book.authors.join}</p>
+                                        <p className="text-gray-600">Authors: {book.authors}</p>
                                         <p className="text-gray-500 mt-1">Pages: {book.pageCount}</p>
                                     </div>
                                 </div>

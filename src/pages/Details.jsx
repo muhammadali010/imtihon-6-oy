@@ -24,12 +24,12 @@ navigate('/')
   return (
     <div>
         <Navbar/>
-        <button onClick={handleBack} className='border p-2 rounded-md mt-3 ml-6 bg-slate-600'>Back To Home</button>
+        <button onClick={handleBack} className='border text-white p-2 rounded-md mt-3 ml-10 bg-slate-600'>Back To Home</button>
       {loading ? (
         <p className='text-center'>Loading...</p>
       ) : (
         book ? (
-          <div className='flex mt-24 ml-7'>
+          <div className='flex mt-24 ml-16'>
             <img src={book.thumbnailUrl} alt={book.title} className="w-80 h-80 mb-3 object-cover" />
             <div className='ml-12 mt-20'>
             <h1 className="text-2xl font-bold">{book.title}</h1> 
